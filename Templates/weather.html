@@ -12,6 +12,9 @@
 <!--        <input type="text" name="country" placeholder="country">-->
         <button type="submit">Submit</button>
     </form>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %}
     {% if country %}
     <h3>Weather for {{ city}}, {{ country}}</h3>
         <p>Temperature: {{ temp }} &deg;F</p>
