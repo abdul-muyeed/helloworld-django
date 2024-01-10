@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>weather</title>
+</head>
+<body>
+    <h1> Weather App</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="city" placeholder="city">
+<!--        <input type="text" name="country" placeholder="country">-->
+        <button type="submit">Submit</button>
+    </form>
+    {% if country_code %}
+    <h3>Weather for {{ city}}, {{ country}}</h3>
+        <p>Temperature: {{ temp }} &deg;F</p>
+        <p>Humidity: {{ humidity }}%</p>
+    <p>Feels like: {{feels_like}}</p>
+        <p>Pressure: {{ pressure }} hPa</p>
+        <p>Wind: {{ wind }}</p>
+    <p>{{weather}}<img src="http://openweathermap.org/img/w/{{ icon }}.png" alt="Weather icon"></p>
+
+    {% endif %}
+</body>
+</html>
