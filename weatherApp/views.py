@@ -10,6 +10,7 @@ def weather(request):
             city = request.POST["city"]
             source = urllib.request.urlopen(
                 "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&appid=20f4f069575188b50abe9a68e39c45f5").read()
+            print(source)
             list_of_data = json.loads(source)
             print(list_of_data)
             data = {
@@ -25,7 +26,7 @@ def weather(request):
             }
             # print(data)
         except NameError as e:
-            return render(request, "weather.html", {"error": "Enter a valid city name" + e})
+            return render(request, "weather.html", {"error": "Enter a valid city name" })
 
     else:
         data = {}
